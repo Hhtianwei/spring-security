@@ -12,7 +12,9 @@
 	<http pattern="/session_timeout.jsp" security="none"/>
 	
 	<http auto-config="true" >
-		<intercept-url pattern="/**" access="hasRole('ROLE_USER')"/>
+		
+														<!-- hasRole('ROLE_USER') 只能放一个属性    hasAnyRole()可以放多个值  -->
+		<intercept-url pattern="/**" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')"/>
 		<form-login />
 		
 		<!-- 定义 登出 的 url ，登出后，设置session为无效， 设置登出成功之后跳转的页面 。  登出之后 清除 cookie中的session -->
@@ -29,12 +31,27 @@
 		<!-- 两种save remember me 的方式，一种是用cookie 一种是通过持久化。 用cookie,只要配置一下 key, 自定义的一个key . cookie会在浏览器中生成一个 remember-me的value value是通过Base64加密的，其中就会有 key值 -->
 		<remember-me key="helloSecurity01"/>
 	</http>
+	
+	<!--  不用数据库-->
+	<!--
 	<authentication-manager>
-		<authentication-provider>
+		<authentication-provider> 
 			<user-service>
 				<user name="user" password="1" authorities="ROLE_USER" />
 				<user name="admin" password="1" authorities="ROLE_USER,ROLE_ADMIN"/>
 			</user-service>
 		</authentication-provider>
+	 -->
+	 
+	 
+	 <!-- 使用数据库 -->
+	<authentication-manager>
+		<authentication-provider user-service-ref="myUserDetailsService"/> 
 	</authentication-manager>
+	
+	 <!-- 使用数据库 -->
+	<b:bean id="myUserDetailsService" class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl">
+		<b:property name="dataSource" ref="securityDataSource"/>
+	</b:bean>
+
 </b:beans>
