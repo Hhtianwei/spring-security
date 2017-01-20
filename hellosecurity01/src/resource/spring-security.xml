@@ -50,8 +50,13 @@
 	</authentication-manager>
 	
 	 <!-- 使用数据库 -->
-	<b:bean id="myUserDetailsService" class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl">
+	<!-- <b:bean id="myUserDetailsService" class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl">
+		<b:property name="dataSource" ref="securityDataSource"/>
+	</b:bean> -->
+	
+	<b:bean id="myUserDetailsService" class="com.hellosecurity01.service.UserLoginJdbcDaoImpl">
 		<b:property name="dataSource" ref="securityDataSource"/>
 	</b:bean>
+	
 
 </b:beans>
