@@ -1,10 +1,9 @@
 /*
-SQLyog Job Agent v11.11 (64 bit) Copyright(c) Webyog Inc. All Rights Reserved.
-
-
+SQLyog Ultimate v11.11 (64 bit)
 MySQL - 5.7.13 : Database - demo1
 *********************************************************************
-*/
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 
@@ -14,7 +13,7 @@ MySQL - 5.7.13 : Database - demo1
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`demo1` /*!40100 DEFAULT CHARACTER SET latin1 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`demo1` /*!40100 DEFAULT CHARACTER SET utf8 */;
 
 USE `demo1`;
 
@@ -33,7 +32,7 @@ CREATE TABLE `authorities` (
 
 /*Data for the table `authorities` */
 
-insert DELAYED  into `authorities`(`id`,`uid`,`authority`) values (100000000,100000010,'ROLE_USER'),(100000001,100000011,'ROLE_USER'),(100000002,100000012,'ROLE_USER'),(100000003,100000013,'ROLE_USER'),(100000004,100000014,'ROLE_ADMIN'),(100000005,100000010,'ROLE_ADMIN');
+insert  into `authorities`(`id`,`uid`,`authority`) values (100000000,100000010,'ROLE_USER'),(100000001,100000011,'ROLE_USER'),(100000002,100000012,'ROLE_USER'),(100000003,100000013,'ROLE_USER'),(100000004,100000014,'ROLE_ADMIN'),(100000005,100000010,'ROLE_ADMIN');
 
 /*Table structure for table `users` */
 
@@ -49,7 +48,7 @@ CREATE TABLE `users` (
 
 /*Data for the table `users` */
 
-insert DELAYED  into `users`(`id`,`username`,`password`,`enabled`) values (100000010,'u1','1',1),(100000011,'u2','1',1),(100000012,'u3','1',1),(100000013,'u4','1',1),(100000014,'u5','1',1);
+insert  into `users`(`id`,`username`,`password`,`enabled`) values (100000010,'u1','acb13da452561dc9d9c70e66b0bd5773',1),(100000011,'u2','1',1),(100000012,'u3','1',1),(100000013,'u4','1',1),(100000014,'u5','1',1);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
